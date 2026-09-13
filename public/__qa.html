@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Local responsive QA</title>
+<style>body{margin:0;font:16px system-ui;background:#ddd}header{padding:8px;position:sticky;top:0;background:white;z-index:2}iframe{border:0;display:block;margin:auto;height:850px;background:#1f324a}</style>
+<header><label>Viewport <select id="width"><option>320</option><option selected>375</option><option>390</option><option>480</option><option>720</option><option>768</option><option>960</option><option>1024</option><option>1280</option><option>1440</option><option>1920</option></select></label></header>
+<iframe title="Website preview" src="/" style="width:375px"></iframe>
+<script>document.querySelector('select').addEventListener('change',e=>{document.querySelector('iframe').style.width=e.target.value+'px'})</script>
+</html>
