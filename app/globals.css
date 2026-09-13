@@ -135,3 +135,49 @@ html, body, main { width: 100%; min-width: 0; }
   .shell { width: calc(100% - 32px); }
   .site-header .brand { flex-basis: 190px; }
 }
+
+/* Both languages use the same fluid layout and motion components. */
+.language-switch { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:7px 10px; border:1px solid #ffffff45; font-size:14px; font-weight:700; white-space:nowrap; }
+.language-switch:hover { color:var(--yellow); border-color:var(--yellow); }
+html[lang=en] h1 { font-size:clamp(2.5rem,4.2vw,4.15rem); line-height:1.16; letter-spacing:-1px; }
+html[lang=en] h2 { font-size:clamp(2.25rem,3.4vw,3.5rem); line-height:1.2; }
+html[lang=en] .eyebrow { font-size:14px; }
+html[lang=en] .desktop-nav { gap:20px; }
+html[lang=en] .desktop-nav > a { font-size:14px; }
+html[lang=en] .site-header { gap:20px; }
+html[lang=en] .header-actions { gap:10px; }
+html[lang=en] .header-cta { gap:12px; padding-inline:14px; }
+html[lang=en] .hero-description { font-size:18px; line-height:1.8; }
+html[lang=en] .nav-sheet, html[lang=en] button.text-link,
+html[lang=en] .catalog-copy button, html[lang=en] .quote-direct a,
+html[lang=en] .document-dialog [data-slot=dialog-title],
+html[lang=en] .document-dialog [data-slot=dialog-description] { text-align:left; }
+html[lang=en] .fleet-tab { text-align:left!important; }
+html[lang=en] .document-close { left:auto; right:22px; }
+html[lang=en] .lucide-arrow-up-left { scale:-1 1; }
+html[lang=en] .contact-top h2 { max-width:70%; }
+html[lang=en] .contact-orbit { left:auto; right:12%; }
+html[lang=en] .contact-diagonals { left:auto; right:-100px; }
+html[lang=en] .hero-diagonal { left:auto; right:-70px; transform:rotate(45deg); }
+html[lang=en] .quote-copy h3 { font-size:clamp(2.1rem,3.3vw,3rem); }
+@media (min-width:721px) and (max-width:1240px) {
+  html[lang=en] .desktop-nav { display:none; }
+  html[lang=en] .mobile-menu { display:grid; }
+}
+@media (max-width:720px) {
+  html { scroll-padding-top:116px; }
+  .quote-layout { scroll-margin-top:116px; }
+  .site-header, html[lang=en] .site-header { display:grid; grid-template-columns:minmax(0,1fr) 40px 40px; height:auto; gap:4px 6px; padding-block:10px; }
+  .site-header .brand { grid-column:1; grid-row:1; max-width:218px; }
+  .header-actions { display:contents; }
+  .motion-toggle { grid-column:2; grid-row:1; }
+  .mobile-menu { grid-column:3; grid-row:1; }
+  .language-switch { grid-column:1 / -1; grid-row:2; justify-self:start; min-height:28px; padding:3px 10px; font-size:13px; }
+  html[lang=en] h1 { font-size:clamp(2rem,8.6vw,3.4rem); letter-spacing:-.5px; }
+  html[lang=en] .scrap-copy h2, html[lang=en] .documents-copy h2 { font-size:34px; }
+  html[lang=en] .contact-top h2 { font-size:36px; }
+  html[lang=en] .contact-orbit { right:4%; }
+  html[lang=en] .fleet-tab { font-size:13px!important; }
+  html[lang=en] .service-picker label { font-size:13px; overflow-wrap:anywhere; }
+  html[lang=en] .scene-caption { gap:8px; }
+}

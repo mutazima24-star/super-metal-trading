@@ -1,3 +1,5 @@
+import { translate, type Locale } from './messages';
+
 export type Service = 'demolition' | 'scrap' | 'equipment';
 
 export const serviceLabels: Record<Service, string> = {
@@ -19,7 +21,8 @@ export const quoteFields: Record<Service, { name: string; label: string; placeho
   ],
 };
 
-export function buildQuote(service: Service, values: Record<string, string>) {
+export function buildQuote(service: Service, values: Record<string, string>, locale: Locale = 'ar') {
+  const t = (value: string) => translate(locale, value);
   const fields = [
     { name: 'name', label: 'الاسم' }, { name: 'phone', label: 'رقم التواصل' },
     { name: 'company', label: 'الجهة' }, { name: 'location', label: 'موقع المشروع' },
@@ -27,7 +30,7 @@ export function buildQuote(service: Service, values: Record<string, string>) {
     ...quoteFields[service], { name: 'start', label: 'الموعد المتوقع' },
     { name: 'notes', label: 'تفاصيل إضافية' },
   ];
-  return ['طلب عرض سعر — ' + serviceLabels[service], ...fields
+  return [t('طلب عرض سعر — ') + t(serviceLabels[service]), ...fields
     .filter(field => values[field.name]?.trim())
-    .map(field => `${field.label}: ${values[field.name].trim()}`)].join('\n');
+    .map(field => `${t(field.label)}: ${values[field.name].trim()}`)].join('\n');
 }
